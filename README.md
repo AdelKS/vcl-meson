@@ -42,3 +42,23 @@ The library's headers can then be included under the `vcl` prefix, for example:
 ```c++
 #include <vcl/vectorclass.h>
 ```
+
+### Tests
+The [test](test/) subfolder is meant to contain tests that can also serve as examples. For now only one test has been added to demonstrate one way to handle tests without using an external testing library (e.g. [Google test](https://google.github.io/googletest/))
+
+#### How to compile and run tests
+You must first setup a build folder with
+```bash
+meson setup build
+```
+then you can simply cd into the folder and run `meson test`
+```bash
+cd build && meson test
+```
+
+#### How to add tests
+1. Write a complete test C++ code:
+   - Must include the `int main()` function that returns a non-zero value when the test fails.
+1. Save it in a `.cpp` file in this folder, for example `sin_cos_lookup.cpp`.
+1. Add your file name to the `vcl_test_sources` array at the top of [test/meson.build](test/meson.build) file.
+1. You are done!

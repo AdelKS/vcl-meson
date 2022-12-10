@@ -26,3 +26,5 @@ vcl_dep = declare_dependency(
     link_with : vcl_lib,
 )
 
+# once everything is setup, we can run tests
+subdir('test')
